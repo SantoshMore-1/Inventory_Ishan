@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Voice Platforms </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3810ec;
+      --secondary: #e90d0d;
+      --text-dark: #2c3e50;
+      --text-light: #ecf0f1;
+      --highlight: #2980b9;
+      --purple: #8e44ad;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      height: 100vh;
+      background-color: #08eee249;
+      color: var(--text-dark);
+    }
+
+    .sidebar {
+      width: 220px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 30px 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgba(133, 11, 233, 0.3);
+      padding-bottom: 10px;
+    }
+
+    .dropdown, .vendor {
+      margin: 12px 0;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown:hover, .vendor:hover {
+      color: var(--text-light);
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    .vendor-list {
+      margin-left: 10px;
+    }
+
+    .main {
+      flex: 1;
+      padding: 40px;
+      overflow-y: auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-bottom: 30px;
+      color: #e4a700;
+    }
+
+    .grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+    }
+
+    .card-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #2d3436;
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 10px;
+    }
+
+    .links a {
+      color: var(--highlight);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .links a:hover {
+      color: var(--primary);
+    }
+
+    .tools-section h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+
+    .card-title a {
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    .card-title a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>Voice Platforms</h2>
+    <div class="dropdown" onclick="toggleVendors()">Node Details ▾</div>
+    <div id="vendorList" class="vendor-list hidden">
+      <div class="vendor" onclick="showPage('sbc')">SBC</div>
+      <div class="vendor" onclick="showPage('lintel')">Lintel</div>
+      <div class="vendor" onclick="showPage('elision')">Elision</div>
+      <div class="vendor" onclick="showPage('spriklr')">Sprinklr</div>
+    </div>
+    
+  </aside>
+
+  <main class="main">
+    <section id="sbcPage" class="hidden">
+      <h2>SBC GUI Devices (Active / Standby)</h2>
+      <div class="grid">
+        <div class="column">
+          <div class="card"><div class="card-title">Noida SBC</div><div class="links"><a href="http://10.200.221.195" target="_blank">Active</a><a href="http://10.200.221.196" target="_blank">Standby</a></div></div>
+          <div class="card"><div class="card-title">GUJ SBC</div><div class="links"><a href="http://10.200.162.74" target="_blank">Active</a><a href="http://10.200.162.75" target="_blank">Standby</a></div></div>
+          <div class="card"><div class="card-title">HYD SBC</div><div class="links"><a href="http://10.200.224.35" target="_blank">Active</a><a href="http://10.200.224.36" target="_blank">Standby</a></div></div>
+          <div class="card"><div class="card-title">BNG SBC</div><div class="links"><a href="http://10.200.220.155" target="_blank">Active</a><a href="http://10.200.220.156" target="_blank">Standby</a></div></div>
+        </div>
+        <div class="column">
+          <div class="card"><div class="card-title">KOL SBC</div><div class="links"><a href="http://10.200.223.51" target="_blank">Active</a><a href="http://10.200.223.52" target="_blank">Standby</a></div></div>
+          <div class="card"><div class="card-title">MUM  SBC</div><div class="links"><a href="http://10.1.1.51" target="_blank">Active</a><a href="http://10.1.1.52" target="_blank">Standby</a></div></div>
+          <div class="card"><div class="card-title">MUM ITS SBC A</div><div class="links"><a href="http://10.50.147.50" target="_blank">Active</a><a href="http://10.50.147.51" target="_blank">Standby</a></div></div>
+        </div>
+      </div>
+
+      <div class="tools-section">
+        <h3>SBC Tools</h3>
+        <div class="card"><div class="card-title"><a href="http://10.200.9.227:5002" target="_blank">SBC CDR</a></div></div>
+        <div class="card"><div class="card-title"><a href="http://10.200.9.228" target="_blank">SBC EOM</a></div></div>
+      </div>
+    </section>
+
+    <!-- Placeholder Sections -->
+    <section id="lintelPage" class="hidden"><h2>Lintel Platforms</h2>
+      <div class="tools-section">
+        <div class="card"><div class="card-title"><a href="http://control.ishanvoice.com/admin" target="_blank">Lintel Customer Bases/A1routes</a></div></div>
+        <div class="card"><div class="card-title"><a href="https://cdr.ishanvoice.com/CDRTool" target="_blank">Lintel CDR Portal</a></div></div>
+        <div class="card"><div class="card-title"><a href="http://103.180.186.182:9080" target="_blank">Lintel SIP Traces</a></div></div>
+      </div>
+    </section>
+
+    <section id="elisionPage" class="hidden"><h2>Elision Platforms</h2>
+      <div class="tools-section">
+        <div class="card"><div class="card-title"><a href="https://ccaas1.ishancxconnect.com" target="_blank">Elision HomePage</a></div></div>
+        <div class="card"><div class="card-title"><a href="https://ccaas1.ishancxconnect.com/login" target="_blank">Elision Admin</a></div></div>
+        <div class="card"><div class="card-title"><a href="https://ccaas1.ishancxconnect.com/agent/index.php" target="_blank">Elision Agent</a></div></div>
+      </div>
+    </section>
+
+    <section id="spriklrPage" class="hidden"><h2>Sprinklr Platform</h2>
+    <div class="tools-section">
+        <div class="card"><div class="card-title"><a href="https://space-prod3.sprinklr.com" target="_blank">Sprinklr Lab Instance</a></div></div>
+      </div>
+    </section>
+   
+  </main>
+
+  <script>
+    const vendorList = document.getElementById('vendorList');
+    const sections = ['sbc', 'lintel', 'elision', 'spriklr'];
+
+    function toggleVendors() {
+      vendorList.classList.toggle('hidden');
+    }
+
+    function showPage(vendor) {
+      sections.forEach(v => {
+        document.getElementById(`${v}Page`).classList.add('hidden');
+      });
+      document.getElementById(`${vendor}Page`).classList.remove('hidden');
+    }
+  </script>
+   <footer style="text-align: center;margin-bottom: 40px;font-size: 0.9rem;color: #999;font-family: 'Poppins', sans-serif;">
+        Created by SantoMo • Engineering Dept• May 2025
+     </footer>
+</body>
+</html>
